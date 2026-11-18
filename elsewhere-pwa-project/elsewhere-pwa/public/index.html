@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#171613">
+  <meta name="description" content="ELSEWHERE — Rewrite the past. Reimagine everything.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/styles.css">
+  <title>ELSEWHERE — Alternative Story Maker</title>
+</head>
+<body>
+  <div class="grain"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Elsewhere home"><span class="brand-mark">E</span><span>ELSEWHERE<small>ALTERNATIVE STORY MAKER</small></span></a>
+    <button class="mobile-menu" id="mobileMenu" aria-label="Toggle navigation">☰</button>
+    <nav id="mainNav">
+      <button class="nav-link active" data-view="studio">Story studio</button>
+      <button class="nav-link" data-view="universes">Story universes</button>
+      <button class="nav-link" data-view="library">My library</button>
+      <button class="nav-link" data-view="about">The archive</button>
+    </nav>
+    <div class="account-area"><span id="accountLabel">GUEST ACCESS</span><button class="outline-btn" id="accountBtn">Sign in</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-kicker"><span></span> AN ARCHIVE OF UNWRITTEN POSSIBILITIES</div>
+      <h1>WHAT IF<br><em>HISTORY</em> CHANGED?</h1>
+      <p>One decision. One forgotten name. One different ending.<br>Step into the worlds that could have been.</p>
+      <button class="gold-btn" data-go="universes">ENTER THE ARCHIVE <span>↗</span></button>
+      <div class="hero-stamp">VOL. I<br><b>∞</b><br>UNWRITTEN</div>
+    </section>
+
+    <section class="view active" id="view-studio">
+      <div class="section-heading"><div><div class="eyebrow">01 / THE WRITING ROOM</div><h2>Story studio</h2></div><p>Shape a new timeline from a single spark.</p></div>
+      <div class="studio-grid">
+        <aside class="panel brief-panel">
+          <div class="panel-top"><span>YOUR STORY BRIEF</span><span class="tiny-seal">E / 01</span></div>
+          <label for="universeSelect">UNIVERSE</label>
+          <select id="universeSelect">
+            <option>Original history</option><option>Marvel-inspired universe</option><option>World War I</option><option>World War II</option><option>World War III — speculative future</option>
+          </select>
+          <label for="premise">THE TURNING POINT</label>
+          <textarea id="premise" rows="5" maxlength="2000" placeholder="What changes? A telegram arrives one day early. A lost expedition returns. A treaty is never signed..."></textarea>
+          <label for="tone">ATMOSPHERE</label>
+          <select id="tone"><option>Epic and cinematic</option><option>Grounded historical drama</option><option>Dark and suspenseful</option><option>Hopeful and adventurous</option><option>Political intrigue</option><option>Mythic and mysterious</option></select>
+          <label for="perspective">POINT OF VIEW</label>
+          <select id="perspective"><option>Third person</option><option>First person</option><option>Multiple perspectives</option><option>Documentary / archive</option></select>
+          <button class="gold-btn full" id="generateBtn">FORGE ALTERNATE STORY <span>✦</span></button>
+          <p class="micro-note">AI STORIES REQUIRE A CONNECTED ACCOUNT AND SERVER API KEY.</p>
+        </aside>
+        <article class="panel output-panel">
+          <div class="panel-top"><span>THE MANUSCRIPT</span><span class="status" id="storyStatus">AWAITING INSPIRATION</span></div>
+          <div id="emptyState" class="empty-state"><div class="compass">✥</div><h3>Your other history<br>begins here.</h3><p>Choose a universe, describe the moment everything changed, and let the archive unfold.</p></div>
+          <div id="storyOutput" class="story-output hidden"><div class="eyebrow" id="storyUniverse"></div><h2 id="storyTitle"></h2><div id="storyText"></div><div class="story-actions"><button class="outline-btn" id="copyStory">Copy text</button><button class="outline-btn" id="saveStory">Save to library</button></div></div>
+          <div id="loadingState" class="loading hidden"><div class="loader"></div><span>REWRITING THE TIMELINE…</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="view" id="view-universes">
+      <div class="section-heading"><div><div class="eyebrow">02 / CHOOSE YOUR TIMELINE</div><h2>Story universes</h2></div><p>Five doors. Countless possible histories.</p></div>
+      <div class="universe-grid">
+        <button class="universe-card" data-universe="Original history"><span class="card-no">ARCHIVE 001</span><span class="card-symbol">⌘</span><h3>Original history</h3><p>Build a world from the first page. No fixed canon, no predetermined ending.</p><span class="card-cta">OPEN TIMELINE ↗</span></button>
+        <button class="universe-card" data-universe="Marvel-inspired universe"><span class="card-no">ARCHIVE 002</span><span class="card-symbol">✦</span><h3>Marvel-inspired</h3><p>Heroes, hidden identities, cosmic stakes, and a universe at a crossroads.</p><span class="card-cta">OPEN TIMELINE ↗</span></button>
+        <button class="universe-card" data-universe="World War I"><span class="card-no">ARCHIVE 003</span><span class="card-symbol">✣</span><h3>World War I</h3><p>Explore a changed armistice, altered alliances, and lives caught in the Great War.</p><span class="card-cta">OPEN TIMELINE ↗</span></button>
+        <button class="universe-card" data-universe="World War II"><span class="card-no">ARCHIVE 004</span><span class="card-symbol">⚑</span><h3>World War II</h3><p>Reconsider pivotal decisions and their human consequences in a fictional timeline.</p><span class="card-cta">OPEN TIMELINE ↗</span></button>
+        <button class="universe-card" data-universe="World War III — speculative future"><span class="card-no">ARCHIVE 005</span><span class="card-symbol">◈</span><h3>World War III</h3><p>A speculative future conflict shaped by technology, diplomacy, and survival.</p><span class="card-cta">OPEN TIMELINE ↗</span></button>
+      </div>
+      <p class="disclaimer">Historical scenarios are fictional explorations, not claims about real events. Alternate timelines may include sensitive subject matter.</p>
+    </section>
+
+    <section class="view" id="view-library">
+      <div class="section-heading"><div><div class="eyebrow">03 / YOUR PRIVATE COLLECTION</div><h2>My library</h2></div><p>Stories you have chosen to preserve.</p></div>
+      <div id="libraryList" class="library-list"><div class="empty-library">Your saved manuscripts will appear here after you sign in.</div></div>
+    </section>
+
+    <section class="view" id="view-about">
+      <div class="section-heading"><div><div class="eyebrow">04 / ABOUT THE PROJECT</div><h2>The archive</h2></div></div>
+      <div class="about-panel panel"><div class="eyebrow">A NOTE FROM THE ARCHIVIST</div><h2>Every history is a story<br>of choices.</h2><p>ELSEWHERE is an alternative story workshop for curious minds. It brings speculative fiction, historical imagination, and AI-assisted writing into one quiet digital archive.</p><p>Start with a question. Choose the moment the world turns. Then follow the consequences into the unknown.</p><div class="about-rule"></div><div class="about-meta"><span>DESIGNED FOR DESKTOP, TABLET & MOBILE</span><span>POWERED BY YOUR CONNECTED AI</span></div></div>
+    </section>
+  </main>
+
+  <footer><span>© ELSEWHERE / THE UNWRITTEN ARCHIVE</span><span>HISTORY IS NEVER THE ONLY STORY.</span></footer>
+
+  <dialog id="authDialog" class="auth-dialog">
+    <form method="dialog" class="dialog-close"><button aria-label="Close">×</button></form>
+    <div class="eyebrow">THE ARCHIVE / ACCOUNT</div><h2 id="authTitle">Welcome back.</h2><p id="authIntro">Sign in to preserve your manuscripts.</p>
+    <form id="authForm">
+      <div id="nameField" class="hidden"><label for="displayName">DISPLAY NAME</label><input id="displayName" autocomplete="name" maxlength="40"></div>
+      <label for="email">EMAIL ADDRESS</label><input id="email" type="email" autocomplete="email" required>
+      <label for="password">PASSWORD</label><input id="password" type="password" minlength="10" autocomplete="current-password" required>
+      <p class="form-error" id="authError"></p><button class="gold-btn full" id="authSubmit">SIGN IN</button>
+    </form>
+    <button class="text-btn" id="toggleAuth">Create an account instead</button>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>
